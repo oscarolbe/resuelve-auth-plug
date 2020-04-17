@@ -60,7 +60,8 @@ defmodule ResuelveAuth.AuthPlug do
       {:error, reason} ->
         options[:handler].errors(conn, reason)
 
-      _ ->
+      error ->
+        IO.inspect(error)
         options[:handler].errors(conn, "Unauthorized")
     end
   end
